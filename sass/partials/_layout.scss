@@ -1,0 +1,83 @@
+/*
+ * For general layout and structure.
+ * breakpoint specific layout will be in bp scss files.
+ *
+ *
+ */
+
+.container {
+	@include container;
+  @if $no-mqs {
+    width: 940px; // Fix width.
+  }
+}
+
+.has-sidebar .main {
+  @include bp(tablet) {
+    @include span-columns(9);
+  }
+}
+.sidebar {
+  @include bp(tablet) {
+    @include span-columns(3 omega);
+  }
+}
+
+// Standard layouts
+.row {
+  @include clearfix;
+  clear: both;
+  @include bp(mobile-large) {
+    .one-half {
+      width: columns(6) - gutter();
+      display: inline;
+      float: left;
+      margin-right: gutter() * 2;
+    }
+    .one-third {
+      width: columns(4) - gutter();
+      display: inline;
+      float: left;
+      margin-right: gutter() * 2;
+    }
+    .one-quarter {
+      width: columns(3) - gutter();
+      display: inline;
+      float: left;
+      margin-right: gutter() * 2;
+    }
+    .third-twothird--first {
+      width: columns(4) - gutter();
+      display: inline;
+      float: left;
+      margin-right: gutter() * 2;
+    }
+    .third-twothird--last {
+      width: columns(8) - gutter();
+      display: inline;
+      float: right;
+      margin-right: 0;
+    }
+    .twothird-third--first {
+      width: columns(8) - gutter();
+      display: inline;
+      float: left;
+      margin-right: gutter() * 2;
+    }
+    .twothird-third--last {
+      width: columns(4) - gutter();
+      display: inline;
+      float: right;
+      margin-right: 0;
+    }
+    .one-third--last,
+    .one-half--last,
+    .one-quarter--last {
+      margin-right: 0;
+    }
+  }
+  &.layout {
+    @include clearfix();
+    margin-bottom: $baselineheight;
+  }
+}

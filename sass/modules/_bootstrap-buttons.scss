@@ -1,0 +1,156 @@
+.btn {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	padding: $buttonpadding;
+	margin-bottom: 0;
+	*margin-left: .3em;
+	font: {
+		weight: normal;
+		family: $basefontfamily;
+	}
+	@include font-size($buttonfontsize);
+	line-height: 1.5;
+	color: $buttoncolor;
+	text-align: center;
+	vertical-align: middle;
+	background-color: $buttonbackgroundcolor;
+	@if $buttonborder == true {
+		border: $buttonborderwidth $buttonborderstyle $buttonbordercolor;
+		border-bottom-color: darken($buttonbordercolor, 10%);
+	} @else {
+    border: none;
+  }
+	border-radius: $buttonborderradius;
+	cursor: pointer;
+  text-transform: $buttontransform;
+
+	&:visited,
+	&:hover,
+	&:active {
+		color: $buttoncolor;
+		text-decoration: none;
+    // background: adjust-hue(saturate(lighten(#565658,17%),0%),-15deg);
+    background-color: darken($buttonbackgroundcolor, 10%);
+	}
+
+}
+
+/*btn*/
+
+.btn:first-child {
+	*margin-left: 0;
+}
+
+.btn--disabled {
+	opacity: .5;
+	cursor: default;
+}
+
+@each $buttontype in error $errorcolor $buttoncolorerror, info $infocolor $buttoncolorinfo, primary $primarycolor $buttoncolorprimary, success $successcolor $buttoncolorsuccess, warning $warningcolor $buttoncolorwarning {
+	.btn--#{nth($buttontype, 1)} {
+		background-color: nth($buttontype, 2);
+		@if $buttonborder == true {
+			border: {
+				color: darken(nth($buttontype, 2), 10%);
+				bottom-color: darken(nth($buttontype, 2), 15%);
+			}
+		}
+		color: nth($buttontype, 3);
+
+		&:visited,
+		&:active,
+		&:hover {
+			//background-color: darken(nth($buttontype, 2), 10%);
+      background-color: darken(nth($buttontype, 2), 10%);
+			color: nth($buttontype, 3);
+		}
+	}
+}
+
+.btn--extlarge {
+	padding: 11px 22px;
+	@include font-size($buttonfontsize * 2);
+	@if $buttonborder == true {
+		border-width: $buttonborderwidth * 2;
+	}
+	border-radius: $borderradius;
+}
+
+.btn.btn--large {
+	*padding:
+	{
+		top: 7px;
+		bottom: 7px;
+	}
+}
+
+/*btn.btn-large*/
+
+.btn--large {
+	padding: 11px 18px;
+	@include font-size($buttonfontsize * 1.25);
+	line-height: inherit;
+	border-width: $buttonborderwidth * 2;
+	border-radius: $borderradius;
+}
+
+.btn--small {
+	padding: 5px 10px;
+	@include font-size($buttonfontsize / 1.5);
+	line-height: inherit;
+}
+
+.btn--mini {
+	padding: 3px 5px;
+	@include font-size($buttonfontsize / 1.75);
+	line-height: inherit;
+}
+
+.btn-group {
+	position: relative;
+	*zoom: 1;
+	*margin-left: .3em;
+	margin-bottom: $baselineheight;
+
+	.btn {
+		position: relative;
+		float: left;
+		margin-left: -1px;
+		border-radius: 0;
+	}
+
+	.btn:first-child {
+		margin-left: 0;
+		border-radius: 2px, 0, 2px, 0;
+	}
+
+	.btn:last-child {
+		border-radius: 0, 2px, 0, 2px;
+	}
+
+	.btn.large:first-child {
+		margin-left: 0;
+		border-radius: 4px, 0, 4px, 0;
+	}
+
+	.btn.large:last-child {
+		border-radius: 0, 4px, 0, 4px;
+	}
+}
+
+/*btn.btn-group*/
+
+.btn-toolbar {
+	clear: both;
+	margin-top: $baselineheight / 2;
+	margin-bottom: $baselineheight / 2;
+
+	.btn-group {
+		display: inline-block;
+		*display: inline;
+		*zoom: 1;
+	}
+}
+
+/*btn.btn-toolbar*/

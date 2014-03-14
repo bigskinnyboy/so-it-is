@@ -1,0 +1,147 @@
+
+// Relative font sizes
+@mixin font-size($font-size: 16) {
+	font-size: #{$font-size}px;
+	font-size: #{$font-size / 10}rem;
+}
+
+// Clearfix
+@mixin clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+// Hide text for image replacement
+@mixin hide-text() {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+// Hide from visual and speaking browsers
+@mixin hidden() {
+	display: none !important;
+	visibility: hidden;
+}
+
+// Hide but maintain layout
+@mixin invisible() {
+	visibility: hidden;
+}
+
+// Hidden but available to speaking browsers
+@mixin visuallyhidden() {
+	overflow: hidden;
+	position: absolute;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+
+	// Make visuallyhidden focusable with a keyboard
+	&.focusable {
+		&:active,
+		&:focus {
+			position: static;
+			clip: auto;
+			height: auto;
+			width: auto;
+			margin: 0;
+			overflow: visible;
+		}
+	}
+}
+
+// Retina images
+@mixin background-image-retina($file, $type, $width, $height) {
+	background-image: url($file + '.' + $type);
+	@media only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (-moz-min-device-pixel-ratio: 2),
+	only screen and (-o-min-device-pixel-ratio: 2/1),
+	only screen and (min-device-pixel-ratio: 2),
+	only screen and (min-resolution: 192dpi),
+	only screen and (min-resolution: 2dppx) {
+		& {
+			background-image: url($file + '@2x.' + $type);
+			-webkit-background-size: $width $height;
+			-moz-background-size: $width $height;
+			-o-background-size: $width $height;
+			background-size: $width $height;
+		}
+	}
+}
+
+// See: https://github.com/filamentgroup/scoped-media-query
+@mixin scopedmediaquery($queries...) {
+	$length: length($queries);
+	@for $i from 1 through $length {
+		@if $i % 2 == 1 {
+			@media #{nth($queries, $i)} {
+				#{nth($queries, $i+1)} {
+					@content;
+				}
+			}
+		}
+	}
+}
+
+// @include heading(MARGIN, FONT SIZE, LINE HEIGHT)
+@mixin heading($margin: 1, $font-size: 1, $line-height: "") {
+	margin-bottom: $baselineheight / $margin;
+	@include font-size($basefontsize * $font-size);
+	@if $line-height != "" {
+		line-height: $line-height
+	}
+}
+
+/*
+ * Breakpoint mixin. See: http://css-tricks.com/conditional-media-query-mixins/
+ *
+ * Use:
+ * .row {
+ *  @include bp(mobile) {
+ *    //mobile styles
+ *  };
+ * }
+ *
+ * Breakpoints are set in _config.scss e.g. $bp1
+ */
+
+@mixin bp($point) {
+  @if ($no-mqs) {
+		@content;
+  }
+  @else {
+		@if $point == mobile {
+			@media (min-width: $bp1) { @content; }
+		}
+		@else if $point == mobile-large {
+			@media (min-width: $bp2) { @content; }
+		}
+		@else if $point == tablet {
+			@media (min-width: $bp3) { @content; }
+		}
+		@else if $point == desktop-small {
+			@media (min-width: $bp4) { @content; }
+		}
+		@else if $point == desktop {
+			@media (min-width: $bp5) { @content; }
+		}
+		@else if $point == desktop-large {
+			@media (min-width: $bp6) { @content; }
+		}
+  }
+}

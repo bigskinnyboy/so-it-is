@@ -1,0 +1,44 @@
+/*
+ * Requires bootstrap collapse.js (not included)
+ *
+ */
+
+.accordion {
+	margin-bottom: $baselineheight;
+}
+
+.accordion__heading {
+	border-bottom-width: 0;
+
+	.accordion__toggle {
+		display: block;
+		padding: $gutter-width / 2 0;
+		cursor: pointer;
+	}
+}
+
+/*accordion-heading*/
+
+.accordion__inner {
+	padding: $gutter-width / 2 0 0 0;
+	border-top: $borderwidth $borderstyle $bordercolor;
+}
+
+.collapse {
+	position: relative;
+	height: 0;
+
+	overflow: hidden;
+	@include transition(height $transitionduration ease-in);
+
+	// Added for fade-in of panel content
+	opacity: 0;
+}
+
+.collapse.in {
+	height: auto;
+
+	// Added for fade-in of panel content
+	opacity: 1;
+	@include transition(opacity ($transitionduration) linear);
+}

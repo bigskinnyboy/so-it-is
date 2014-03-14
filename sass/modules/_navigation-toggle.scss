@@ -1,0 +1,70 @@
+// Mobile menu link. See JS for click event.
+.navbar-toggle {
+  display: block;
+  padding: 8px 6px;
+  background: $buttonbackgroundcolor;
+  border:1px solid $buttonbackgroundcolor;
+  border-radius: $borderradius;
+  float: right;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+// Navigation wrapper
+.navbar-collapse {
+	position: relative;
+	@include transition(all .35s ease-out);
+	overflow: hidden;
+	max-height: 0;
+	clear: both;
+  @include bp(mobile-large) {
+    // Hide the mobile menu and reset the navigation for larger screen sizes.
+    height: auto !important;
+    overflow: visible !important;
+    opacity: 1;
+    clear: none;
+    max-height: inherit;
+  }
+}
+
+// Show the menu when expanded.
+.navbar-collapse.expanded {
+	max-height: 15em;
+}
+
+.navbar .navbar-toggle,
+.mobile-menu {
+  @include bp(mobile-large) {
+    display: none;
+  }
+}
+
+/**
+ * Menu elements
+ *
+ */
+
+// The hamburger. Wrapper and single element.
+.icon-bars {
+	display: inline-block;
+}
+
+.icon-bar {
+  width: 20px;
+  height: 2px;
+  background: $buttoncolor;
+  display: block;
+	& + .icon-bar {
+		margin-top: 3px;
+	}
+}
+
+// The link title e.g. 'Menu'
+.btn-navbar__title {
+  @include font-size(16);
+}
+
+.sr-only {
+  @include visuallyhidden;
+}

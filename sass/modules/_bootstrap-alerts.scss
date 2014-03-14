@@ -1,0 +1,64 @@
+.alert {
+	padding: $alertpadding;
+	margin-bottom: $baselineheight;
+	background-color: $alertbackgroundcolor;
+	border: $alertborderwidth $alertborderstyle $alertbordercolor;
+	border-radius: $alertborderradius;
+	@include font-size($alertfontsize);
+	color: $alertcolor;
+}
+
+/*alert*/
+
+.alert--success {
+	background-color: $alertbackgroundcolorsuccess;
+	border-color: darken($alertbackgroundcolorsuccess, 10%);
+	color: $alertcolorsuccess;
+}
+
+/*alert--success*/
+
+.alert--danger,
+.alert--error {
+	background-color: $alertbackgroundcolorerror;
+	border-color: darken($alertbackgroundcolorerror, 10%);
+	color: $alertcolorerror;
+}
+
+/*alert--error*/
+
+.alert--info {
+	background-color: $alertbackgroundcolorinfo;
+	border-color: darken($alertbackgroundcolorinfo, 10%);
+	color: $alertcolorinfo;
+}
+
+/*alert--info*/
+
+.alert--warning {
+	background-color: $alertbackgroundcolorwarning;
+	border-color: darken($alertbackgroundcolorwarning, 10%);
+	color: $alertcolorwarning;
+}
+
+.alert--block {
+	padding-top: 14px;
+	padding-bottom: 14px;
+
+	> p,
+	> ul {
+		margin-bottom: 0;
+	}
+
+	> p + p {
+		margin-top: 5px;
+	}
+}
+
+
+.error {
+  color: $errorcolor;
+}
+.valid {
+  color: $successcolor;
+}

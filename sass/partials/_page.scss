@@ -1,0 +1,157 @@
+/**
+ * Site general styling.
+ *
+ * Breakpoints use a mixin to keep styles together. E.g.
+ *
+ * .row {
+ *  // mobile first styles
+ *  @include bp(mobile-large) {
+ *    // Breakpoint styles for 600px and up (set in config)
+ *  }
+ *  @include bp(tablet) {
+ *    // Breakpoint styles for ipad and up.
+ *  }
+ * }
+ *
+ * Look in _mixins.scss for more information and _config for bp sizes.
+ *
+ */
+
+
+/* ==========================================================================
+    General
+   ========================================================================== */
+
+%reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row--centered {
+  text-align: center;
+}
+
+.more-link {
+  &:before {
+    content: "\f0da";
+    font-family: FontAwesome;
+    padding-right: 5px;
+  }
+}
+
+
+/* ==========================================================================
+    Header
+   ========================================================================== */
+
+.banner {
+  @include clearfix;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar-header {
+
+}
+
+.navbar-brand {
+  display: block;
+  @include bp(mobile-large) {}
+}
+
+.tagline {
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 34px;
+}
+
+
+/* ==========================================================================
+    Navigation
+   ========================================================================== */
+
+// Main navigation
+nav[role="navigation"] {
+  @include bp(mobile-large) {
+
+  }
+}
+
+.nav {
+  @extend %reset-list;
+  @include clearfix;
+  li {
+    @include bp(mobile-large){
+      display: inline-block;
+      &.menu-home a {
+        padding-left: 0;
+      }
+    }
+  }
+  a {
+    color: $navlinkcolor;
+    padding: 6px 10px;
+    display: block;
+    &:hover {
+      color: $navlinkhovercolor;
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+/* ==========================================================================
+    Main Content
+   ========================================================================== */
+
+.wrap {
+
+}
+
+.content {
+  padding-top: $baselineheight;
+  padding-bottom: $baselineheight;
+  @include clearfix;
+}
+
+
+
+/* ------------------------------ Global ------------------------------------ */
+
+
+
+/* ------------------------------- Front ------------------------------------ */
+
+
+
+/* ------------------------------- Pages ------------------------------------ */
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+    Sidebars
+   ========================================================================== */
+
+
+
+
+
+
+/* ==========================================================================
+    Footer
+   ========================================================================== */
+
+
+
+// <footer>
+.content-info {
+
+}
