@@ -14,12 +14,12 @@
 
 .has-sidebar .main {
   @include bp(tablet) {
-    @include span-columns(9);
+    @include span(9);
   }
 }
 .sidebar {
   @include bp(tablet) {
-    @include span-columns(3 omega);
+    @include span(3 omega);
   }
 }
 
@@ -29,43 +29,43 @@
   clear: both;
   @include bp(mobile-large) {
     .one-half {
-      width: columns(6) - gutter();
+      width: span(6) - gutter();
       display: inline;
       float: left;
       margin-right: gutter() * 2;
     }
     .one-third {
-      width: columns(4) - gutter();
+      width: span(4) - gutter();
       display: inline;
       float: left;
       margin-right: gutter() * 2;
     }
     .one-quarter {
-      width: columns(3) - gutter();
+      width: span(3) - gutter();
       display: inline;
       float: left;
       margin-right: gutter() * 2;
     }
     .third-twothird--first {
-      width: columns(4) - gutter();
+      width: span(4) - gutter();
       display: inline;
       float: left;
       margin-right: gutter() * 2;
     }
     .third-twothird--last {
-      width: columns(8) - gutter();
+      width: span(8) - gutter();
       display: inline;
       float: right;
       margin-right: 0;
     }
     .twothird-third--first {
-      width: columns(8) - gutter();
+      width: span(8) - gutter();
       display: inline;
       float: left;
       margin-right: gutter() * 2;
     }
     .twothird-third--last {
-      width: columns(4) - gutter();
+      width: span(4) - gutter();
       display: inline;
       float: right;
       margin-right: 0;

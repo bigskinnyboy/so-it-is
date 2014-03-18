@@ -112,7 +112,7 @@
  *
  * Use:
  * .row {
- *  @include bp(mobile) {
+ *  @include bp(mobile, min) {
  *    //mobile styles
  *  };
  * }
@@ -120,28 +120,28 @@
  * Breakpoints are set in _config.scss e.g. $bp1
  */
 
-@mixin bp($point) {
+@mixin bp($point, $query: min) {
   @if ($no-mqs) {
 		@content;
   }
   @else {
 		@if $point == mobile {
-			@media (min-width: $bp1) { @content; }
+			@media (#{$query}-width: $bp1) { @content; }
 		}
 		@else if $point == mobile-large {
-			@media (min-width: $bp2) { @content; }
+			@media (#{$query}-width: $bp2) { @content; }
 		}
 		@else if $point == tablet {
-			@media (min-width: $bp3) { @content; }
+			@media (#{$query}-width: $bp3) { @content; }
 		}
 		@else if $point == desktop-small {
-			@media (min-width: $bp4) { @content; }
+			@media (#{$query}-width: $bp4) { @content; }
 		}
 		@else if $point == desktop {
-			@media (min-width: $bp5) { @content; }
+			@media (#{$query}-width: $bp5) { @content; }
 		}
 		@else if $point == desktop-large {
-			@media (min-width: $bp6) { @content; }
+			@media (#{$query}-width: $bp6) { @content; }
 		}
   }
 }

@@ -73,7 +73,6 @@ $wellbgcolor                                        : #F9FAFB;
 
 
 
-
 // ==========================================================================
 //   3. Typography
 // ==========================================================================
@@ -120,6 +119,8 @@ $topnavlinkcolor                                    : #ffffff;
 // ==========================================================================
 //   5. Media Queries
 // ==========================================================================
+
+$no-mqs																							: false !default;
 
 $bp1																								: 480px;
 $bp2																								: 600px;
@@ -236,10 +237,16 @@ $alertcolorwarning																	: $white;
 //   10. Grid
 // ==========================================================================
 
-$total-columns																			: 12;
-$column-width																				: 60px;
+$susy: (
+	columns: 12,
+  gutters: .3,
+  column-width: 60px,
+);
+
+//$total-columns																			: 12;
+//$column-width																				: 60px;
 $gutter-width																				: 20px;
-$grid-padding																				: $gutter-width * 1.5;
+//$grid-padding																				: $gutter-width * 1.5;
 
 
 
