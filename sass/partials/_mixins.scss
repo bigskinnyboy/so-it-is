@@ -121,9 +121,14 @@
  */
 
 @mixin bp($point, $query: min) {
-  @if ($no-mqs) {
-		@content;
-  }
+	@if ($no-mqs) {
+		@if ($query == max) {
+
+		}
+		@else {
+			@content;
+		}
+	}
   @else {
 		@if $point == mobile {
 			@media (#{$query}-width: $bp1) { @content; }
