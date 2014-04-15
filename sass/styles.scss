@@ -4,15 +4,12 @@
 @import "partials/normalise";
 @import "partials/mixins";
 
-/* ============ Bootstrap helpers ============ */
-@import "modules/bootstrap-buttons";
-@import "modules/bootstrap-alerts";
-@import "modules/bootstrap-forms";
-//@import "modules/bootstrap-tables";
-//@import "modules/bootstrap-accordion";
-
-
 /* ============ Optional modules ============= */
+@import "modules/buttons";
+@import "modules/alerts";
+@import "modules/forms";
+@import "modules/tables";
+//@import "modules/bootstrap-accordion";
 //@import "modules/flexslider";
 @import "modules/navigation-toggle";
 @import "modules/gallery";
