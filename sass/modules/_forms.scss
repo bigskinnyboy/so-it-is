@@ -76,11 +76,11 @@ input[type="search"],
 input[type="tel"] {
 	display: inline-block;
 	margin-bottom: $baselineheight / 2;
-	//padding: $forminputpadding;
+	padding: $inputpadding;
 	@include font-size($basefontsize);
 	line-height: $baselineheight;
 	color: inherit;
-	border-radius: $borderradius;
+	border-radius: $inputborderradius;
 	vertical-align: middle;
 }
 
@@ -118,16 +118,10 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-	//background-color: $formbinputbackgroundcolor;
-	// @include formbinputgrad;
+
 	border: 1px solid $bordercolor;
 
-	&:hover {
-		//border-color: $forminputbordercolorhover;
-	}
-
 	&:focus {
-		//border-color: $forminputbordercolorfocus;
 		outline: 0;
 		outline: thin dotted \ 9;
 	}
@@ -166,11 +160,6 @@ input[type="checkbox"]:focus {
 	outline: thin dotted #333;
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px;
-}
-
-input,
-textarea {
-	//@include placeholder($formplaceholdercolor);
 }
 
 // radio / checkbox
@@ -246,9 +235,7 @@ textarea[readonly] {
 // actions
 
 .form-actions {
-	margin-top: $baselineheight;
 	margin-bottom: $baselineheight;
-	padding: ($baselineheight - 1) $gutter-width $baselineheight;
 	@include clearfix;
 }
 

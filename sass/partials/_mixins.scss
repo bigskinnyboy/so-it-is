@@ -65,24 +65,6 @@
 	}
 }
 
-// Retina images
-@mixin background-image-retina($file, $type, $width, $height) {
-	background-image: url($file + '.' + $type);
-	@media only screen and (-webkit-min-device-pixel-ratio: 2),
-	only screen and (-moz-min-device-pixel-ratio: 2),
-	only screen and (-o-min-device-pixel-ratio: 2/1),
-	only screen and (min-device-pixel-ratio: 2),
-	only screen and (min-resolution: 192dpi),
-	only screen and (min-resolution: 2dppx) {
-		& {
-			background-image: url($file + '@2x.' + $type);
-			-webkit-background-size: $width $height;
-			-moz-background-size: $width $height;
-			-o-background-size: $width $height;
-			background-size: $width $height;
-		}
-	}
-}
 
 // See: https://github.com/filamentgroup/scoped-media-query
 @mixin scopedmediaquery($queries...) {
@@ -98,14 +80,6 @@
 	}
 }
 
-// @include heading(MARGIN, FONT SIZE, LINE HEIGHT)
-@mixin heading($margin: 1, $font-size: 1, $line-height: "") {
-	margin-bottom: $baselineheight / $margin;
-	@include font-size($basefontsize * $font-size);
-	@if $line-height != "" {
-		line-height: $line-height
-	}
-}
 
 /*
  * Breakpoint mixin. See: http://css-tricks.com/conditional-media-query-mixins/
@@ -147,6 +121,9 @@
 		}
 		@else if $point == desktop-large {
 			@media (#{$query}-width: $bp6) { @content; }
+		}
+		@else {
+			@warn "Not a valid named breakpoint, options are: mobile, mobile-large, tablet, desktop-small, desktop and desktop-large";
 		}
   }
 }

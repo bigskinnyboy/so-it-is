@@ -21,6 +21,12 @@
 /* ==========================================================================
     General
    ========================================================================== */
+/*
+ * Reset list - Placeholder
+ *
+ * Removes margin, padding and list type.
+ * Usage: ul { @extend %reset-list; }
+ */
 
 %reset-list {
   margin: 0;

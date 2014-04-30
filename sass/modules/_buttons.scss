@@ -30,13 +30,10 @@
 	&:active {
 		color: $buttoncolor;
 		text-decoration: none;
-    // background: adjust-hue(saturate(lighten(#565658,17%),0%),-15deg);
     background-color: darken($buttonbackgroundcolor, 10%);
 	}
 
 }
-
-/*btn*/
 
 .btn:first-child {
 	*margin-left: 0;
@@ -46,6 +43,8 @@
 	opacity: .5;
 	cursor: default;
 }
+
+// Button Variations
 
 @each $buttontype in error $errorcolor $buttoncolorerror, info $infocolor $buttoncolorinfo, primary $primarycolor $buttoncolorprimary, success $successcolor $buttoncolorsuccess, warning $warningcolor $buttoncolorwarning {
 	.btn--#{nth($buttontype, 1)} {
@@ -61,20 +60,10 @@
 		&:visited,
 		&:active,
 		&:hover {
-			//background-color: darken(nth($buttontype, 2), 10%);
       background-color: darken(nth($buttontype, 2), 10%);
 			color: nth($buttontype, 3);
 		}
 	}
-}
-
-.btn--extlarge {
-	padding: 11px 22px;
-	@include font-size($buttonfontsize * 2);
-	@if $buttonborder == true {
-		border-width: $buttonborderwidth * 2;
-	}
-	border-radius: $borderradius;
 }
 
 .btn.btn--large {
@@ -85,14 +74,23 @@
 	}
 }
 
-/*btn.btn-large*/
+.btn--extlarge {
+	padding: 11px 22px;
+	@include font-size($buttonfontsize * 2);
+	@if $buttonborder == true {
+		border-width: $buttonborderwidth * 2;
+	}
+	border-radius: $buttonborderradius;
+}
 
 .btn--large {
 	padding: 11px 18px;
 	@include font-size($buttonfontsize * 1.25);
 	line-height: inherit;
-	border-width: $buttonborderwidth * 2;
-	border-radius: $borderradius;
+	@if $buttonborder == true {
+		border-width: $buttonborderwidth * 2;
+	}
+	border-radius: $buttonborderradius;
 }
 
 .btn--small {
@@ -152,5 +150,3 @@
 		*zoom: 1;
 	}
 }
-
-/*btn.btn-toolbar*/

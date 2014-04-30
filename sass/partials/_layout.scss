@@ -7,8 +7,11 @@
 
 .container {
 	@include container;
+	padding-left: 20px;
+	padding-right: 20px;
+
   @if $no-mqs {
-    width: 940px; // Fix width.
+    width: 940px; // Fix width. Change depending on grid size.
   }
 }
 
@@ -29,46 +32,25 @@
   clear: both;
   @include bp(mobile-large) {
     .one-half {
-      width: span(6) - gutter();
-      display: inline;
-      float: left;
-      margin-right: gutter() * 2;
+      @include span(6 of 12);
     }
     .one-third {
-      width: span(4) - gutter();
-      display: inline;
-      float: left;
-      margin-right: gutter() * 2;
+      @include span(4 of 12);
     }
     .one-quarter {
-      width: span(3) - gutter();
-      display: inline;
-      float: left;
-      margin-right: gutter() * 2;
+      @include span(3 of 12);
     }
     .third-twothird--first {
-      width: span(4) - gutter();
-      display: inline;
-      float: left;
-      margin-right: gutter() * 2;
+      @include span(4 of 12);
     }
     .third-twothird--last {
-      width: span(8) - gutter();
-      display: inline;
-      float: right;
-      margin-right: 0;
+      @include span(last 8 of 12);
     }
     .twothird-third--first {
-      width: span(8) - gutter();
-      display: inline;
-      float: left;
-      margin-right: gutter() * 2;
+      @include span(8 of 12);
     }
     .twothird-third--last {
-      width: span(4) - gutter();
-      display: inline;
-      float: right;
-      margin-right: 0;
+      @include span(last 4 of 12);
     }
     .one-third--last,
     .one-half--last,

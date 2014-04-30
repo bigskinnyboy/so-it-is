@@ -1,21 +1,22 @@
+//	==========================================================================
+//  Configuration
 //
- //  Configuration
- //
- // All variables and configuration options go in here.
- //
- // 1. General Setup
- // 2. Colours
- // 3. Typography
- // 4. Navigation & links
- // 5. Media Queries
- // 6. Buttons
- // 7. Forms
- // 8. Tables
- // 9. Alerts
- // 10. Grid
- // 11. Site Specific
- //
- //
+// 	All variables and configuration options go in here.
+//	Commented out variables are not currently being used.
+//	==========================================================================
+//
+//		1. General Setup
+//		2. Colours
+//		3. Typography
+//		4. Navigation & links
+//		5. Media Queries
+//		6. Buttons
+//		7. Forms
+//		8. Tables
+//		9. Alerts
+//		10. Grid
+//		11. Site Specific
+//
 
 
 
@@ -78,7 +79,7 @@ $wellbgcolor                                        : #F9FAFB;
 // ==========================================================================
 
 $basefontfamily																			: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$basefontsize																				: 12;
+$basefontsize																				: 14;
 $baselineheight																			: 1.5em;
 $baseheadingfont																		: $basefontfamily;
 $baseheadingfontweight															: bold;
@@ -103,15 +104,15 @@ $linkcolorfocus																			: darken($linkcolorvisited, 10);
 
 // Navigation
 
-$navbg																							: #ffffff;
+//$navbg																							: #ffffff;
 $navlinkcolor 																			: $primarycolor;
 $navlinkhovercolor 																	: $secondarycolor;
-$navlinkbg 																					: $white;
-$navlinkhoverbg 																		: rgba(0,0,0,0.3);
+//$navlinkbg 																					: $white;
+//$navlinkhoverbg 																		: rgba(0,0,0,0.3);
 
 
 // Top Nav
-$topnavlinkcolor                                    : #ffffff;
+//$topnavlinkcolor                                    : #ffffff;
 
 
 
@@ -122,12 +123,13 @@ $topnavlinkcolor                                    : #ffffff;
 
 $no-mqs																							: false !default;
 
-$bp1																								: 480px;
-$bp2																								: 600px;
-$bp3																								: 768px;
-$bp4																								: 800px;
-$bp5																								: 990px;
-$bp6																								: 1200px;
+// Em values based of browser default 16px.
+$bp1																								: 30em;			//480px;
+$bp2																								: 37.5em;		//600px;
+$bp3																								: 48em;			//768px;
+$bp4																								: 50em;			//800px;
+$bp5																								: 61.875em; //990px;
+$bp6																								: 75em;			//1200px;
 
 
 
@@ -139,7 +141,7 @@ $bp6																								: 1200px;
 $buttonbackgroundcolor															: $textcolor;
 $buttoncolor																				: $white;
 $buttonpadding																			: 8px 15px;
-$buttonfontsize																			: 12;
+$buttonfontsize																			: $basefontsize;
 $buttontransform																		: uppercase;
 $buttonborderradius																	: $borderradius;
 
@@ -171,13 +173,15 @@ $buttoncolorwarning																	: $buttoncolor;
 //   7. Forms
 // ==========================================================================
 
-$inputbackground																		: #fafafa;
-$inputborder																				: $bordercolor;
-$inputborderwidth																		: 1px;
-$inputborderstyle																		: solid;
-$inputhover																					: lighten($basecolor, 20%);
-$inputfocus																					: $inputhover;
-$placeholdercolor																		: darken($black, 50%);
+//$inputbackground																		: #fafafa;
+//$inputborder																				: $bordercolor;
+//$inputborderwidth																		: 1px;
+//$inputborderstyle																		: solid;
+$inputborderradius																	: $borderradius;
+//$inputhover																					: lighten($basecolor, 20%);
+//$inputfocus																					: $inputhover;
+//$placeholdercolor																		: darken($black, 50%);
+$inputpadding																				: 6px;
 
 
 
@@ -237,16 +241,23 @@ $alertcolorwarning																	: $white;
 //   10. Grid
 // ==========================================================================
 
+// 960 grid: 60px columns, 20px gutters.
+// Based on 14px basefontsize, change values if basefontsize changes.
 $susy: (
 	columns: 12,
-  gutters: .3,
-  column-width: 60px,
+  gutters: 1/3,
+  column-width: 4.2857142857em,
 );
 
-//$total-columns																			: 12;
-//$column-width																				: 60px;
+// 1170 grid: 70px columns, 30px gutters.
+//$susy: (
+//	columns: 12,
+//  gutters: .42857142857,
+//  column-width: 5em,
+//);
+
+
 $gutter-width																				: 20px;
-//$grid-padding																				: $gutter-width * 1.5;
 
 
 
@@ -255,6 +266,6 @@ $gutter-width																				: 20px;
 //   11. Site Specific
 // ==========================================================================
 
-$footerbgcolor																			: $white;
-$footercolor																				: $black;
-$footerlinkcolor                                    : $footercolor;
+//$footerbgcolor																			: $white;
+//$footercolor																				: $black;
+//$footerlinkcolor                                    : $footercolor;
