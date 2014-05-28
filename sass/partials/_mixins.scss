@@ -18,10 +18,6 @@
 	}
 }
 
-.clearfix {
-	@include clearfix;
-}
-
 // Hide text for image replacement
 @mixin hide-text() {
 	text-indent: 100%;
