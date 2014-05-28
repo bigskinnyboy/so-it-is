@@ -215,7 +215,7 @@ sub {
 	bottom: -.25em;
 }
 
-.lead {
+.lede {
 	@include font-size($basefontsize * 1.15);
 }
 
@@ -249,7 +249,7 @@ sub {
 }
 
 // Lede paragraph
-.lede {
-  @include font-size(18);
-  line-height: 1.23;
-}
+//.lede {
+//  @include font-size(18);
+//  line-height: 1.23;
+//}

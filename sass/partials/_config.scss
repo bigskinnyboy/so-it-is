@@ -35,11 +35,13 @@ $debug-mode																					: false !default;
 
 
 // Borders
-$bordercolor																				: #efefef;
+$bordercolor																				: #cfcfcf;
 $borderwidth																				: 1px;
 $borderstyle																				: solid;
 
 $borderradius																				: 4px;
+
+$focuscolor																					:	darken($bordercolor, 20%);
 
 $transitionduration																	: .25s;
 
@@ -177,11 +179,11 @@ $buttoncolorwarning																	: $buttoncolor;
 //$inputborder																				: $bordercolor;
 //$inputborderwidth																		: 1px;
 //$inputborderstyle																		: solid;
-$inputborderradius																	: $borderradius;
+$inputborderradius																	: 0;
 //$inputhover																					: lighten($basecolor, 20%);
 //$inputfocus																					: $inputhover;
 //$placeholdercolor																		: darken($black, 50%);
-$inputpadding																				: 6px;
+$inputpadding																				: 7px;
 
 
 

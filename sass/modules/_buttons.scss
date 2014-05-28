@@ -33,6 +33,12 @@
     background-color: darken($buttonbackgroundcolor, 10%);
 	}
 
+	&:focus {
+		outline: 4px solid $focuscolor;
+		outline: 5px auto -webkit-focus-ring-color;
+		border-radius: 0;
+	}
+
 }
 
 .btn:first-child {

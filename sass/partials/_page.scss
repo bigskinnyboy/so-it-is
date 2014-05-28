@@ -21,22 +21,6 @@
 /* ==========================================================================
     General
    ========================================================================== */
-/*
- * Reset list - Placeholder
- *
- * Removes margin, padding and list type.
- * Usage: ul { @extend %reset-list; }
- */
-
-%reset-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.row--centered {
-  text-align: center;
-}
 
 .more-link {
   &:before {
@@ -133,7 +117,6 @@ nav[role="navigation"] {
 
 
 /* ------------------------------- Pages ------------------------------------ */
-
 
 
 
