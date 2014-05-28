@@ -1,0 +1,62 @@
+.pull-left {
+	float: left;
+}
+img.pull-left {
+	display: block;
+	margin-right: $gutter-width;
+	margin-bottom: $gutter-width;
+}
+
+.pull-right {
+	float: right;
+}
+img.pull-right {
+	display: block;
+	margin-left: $gutter-width;
+	margin-bottom: $gutter-width;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/*
+ * Reset list - Placeholder
+ *
+ * Removes margin, padding and list type.
+ * Usage: ul { @extend %reset-list; }
+ */
+
+%reset-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.row--centered {
+	text-align: center;
+}
+
+.clearfix {
+	@include clearfix();
+}
+
+.visually-hidden {
+	@include visuallyhidden();
+}
+
+.hidden {
+	@include hidden();
+}
+
+.invisible {
+	@include invisible();
+}
