@@ -10,7 +10,7 @@ Like a magpie I have gathered bits and pieces of CSS from all corners of the glo
 
 ## Installation
 
-Clone the repository `https://github.com/bigskinnyboy/so-it-is.git` or download it. Installing gems may require sudo.
+Clone the repository `git clone https://github.com/bigskinnyboy/so-it-is.git` or download it. Installing gems may require sudo.
 
 Install Sass
 ```
