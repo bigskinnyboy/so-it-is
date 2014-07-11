@@ -10,23 +10,31 @@ Like a magpie I have gathered bits and pieces of CSS from all corners of the glo
 
 ## Installation
 
-May require sudo.
+Clone the repository `https://github.com/bigskinnyboy/so-it-is.git` or download it. Installing gems may require sudo.
 
 Install Sass
-```gem install sass```
+```
+gem install sass
+```
 
 Install Compass, 3.3 of sass requires the pre-release version
-```gem install compass --pre```
+```
+gem install compass --pre
+```
 
 Install Susy grids
-```gem install susy```
+```
+gem install susy
+```
 
 Install Grunt globally - see http://gruntjs.com/getting-started
-```npm install -g grunt-cli```
+```
+npm install -g grunt-cli
+```
 
-You can then cd into directory and run ```npm install``` to install dependencies.
+You can then cd into directory and run `npm install` to install dependencies.
 
-Final step so it is, ```grunt watch``` to watch for changes.
+Final step so it is, `grunt watch` to watch for changes.
 
 ## Alternative versions
 There is also a Gulp branch which removes compass support and will probably change quite a bit as I work out how to use it.
