@@ -102,7 +102,7 @@ input[type="week"] {
 input,
 textarea {
 	width: 100%;
-	@include box-sizing(border-box);
+	//@include box-sizing(border-box);
 }
 
 textarea {
@@ -316,7 +316,7 @@ textarea[readonly] {
 		padding-top : 5px;
 		padding-right : gutter();
 		text-align : right;
-		@include box-sizing(border-box);
+		//@include box-sizing(border-box);
 	}
 
 	.controls {
