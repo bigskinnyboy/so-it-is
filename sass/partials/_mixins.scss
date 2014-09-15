@@ -76,7 +76,6 @@
 	}
 }
 
-
 /*
  * Breakpoint mixin. See: http://css-tricks.com/conditional-media-query-mixins/
  *
@@ -90,36 +89,86 @@
  * Breakpoints are set in _config.scss e.g. $bp1
  */
 
-@mixin bp($point, $query: min) {
-	@if ($no-mqs) {
-		@if ($query == max) {
+// Make sure these match up with breakpoints values defined
+// in the _config.scss
+$bps: (
+	mobile: 				$bp1,
+	mobile-large: 	$bp2,
+	tablet: 				$bp3,
+	desktop-small: 	$bp4,
+	desktop: 				$bp5,
+	desktop-large: 	$bp6
+);
 
+@mixin bp($point, $query: min) {
+	// If no media query support and max width
+	// is not passed, output the content.
+	@if ($no-mqs) and ($query != max) {
+		@content;
+	}
+	@else {
+		// If passed value exists in the map.
+		@if map-has-key($bps, $point) {
+			// Get the value
+			$mapvalue: map-get($bps, $point);
+
+			// If the max parameter is passed
+			// remove 0.1 from it so queries don't clash
+			@if ($query == max) {
+				$mapvalue: $mapvalue - 0.1;
+			}
+
+			// Output the media query
+			@media (#{$query}-width: $mapvalue) {
+				@content;
+			}
 		}
+			// Otherwise tell them they are wrong!
 		@else {
-			@content;
+			@warn "Not a valid named breakpoint, options are: #{map-keys($bps)}";
 		}
 	}
-  @else {
-		@if $point == mobile {
-			@media (#{$query}-width: $bp1) { @content; }
+}
+
+// Usage :
+// @include rem(margin, 10px 20px 5px 10px);
+//
+@mixin rem($property, $values) {
+	// Create a couple of empty lists as output buffers.
+	$font-size: 16px;
+	$px-values: ();
+	$rem-values: ();
+
+	// Loop through the $values list
+	@each $value in $values {
+		// For each property value, if it's in rem or px, derive both rem and
+		// px values for it and add those to the end of the appropriate buffer.
+		// Ensure all pixel values are rounded to the nearest pixel.
+		@if $value == 0 or $value == 0px {
+			// 0 -- use it without a unit
+			$px-values: join($px-values, 0);
+			$rem-values: join($rem-values, 0);
+		} @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+			// px value given - calculate rem value from font-size
+			$new-rem-value: $value / $font-size;
+			$px-values: join($px-values, round($value));
+			$rem-values: join($rem-values, #{$new-rem-value}rem);
+		} @else if type-of($value) == number and not unitless($value) and (unit($value) == "%") {
+			// % value given - don't add px or rem
+			$px-values: join($px-values, #{$value});
+			$rem-values: join($rem-values, #{$value});
+		} @else if $value == auto {
+			// auto - don't add px or rem
+			$px-values: join($px-values, auto);
+			$rem-values: join($rem-values, auto);
+		} @else {
+			// unitless value - use those directly as rem and calculate the px-fallback
+			$px-values: join($px-values, round($value * $font-size));
+			$rem-values: join($rem-values, #{$value}rem);
 		}
-		@else if $point == mobile-large {
-			@media (#{$query}-width: $bp2) { @content; }
-		}
-		@else if $point == tablet {
-			@media (#{$query}-width: $bp3) { @content; }
-		}
-		@else if $point == desktop-small {
-			@media (#{$query}-width: $bp4) { @content; }
-		}
-		@else if $point == desktop {
-			@media (#{$query}-width: $bp5) { @content; }
-		}
-		@else if $point == desktop-large {
-			@media (#{$query}-width: $bp6) { @content; }
-		}
-		@else {
-			@warn "Not a valid named breakpoint, options are: mobile, mobile-large, tablet, desktop-small, desktop and desktop-large";
-		}
-  }
+	}
+
+	// output the converted rules
+	#{$property}: $px-values;
+	#{$property}: $rem-values;
 }
