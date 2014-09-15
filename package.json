@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/bigskinnyboy/so-it-is",
   "devDependencies": {
-    "gulp": "^3.8.6",
+    "gulp": "~3.8.6",
     "gulp-autoprefixer": "0.0.8",
     "gulp-cache": "^0.2.0",
     "gulp-clean": "^0.3.1",
