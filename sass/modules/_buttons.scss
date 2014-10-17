@@ -41,48 +41,38 @@
 
 }
 
-.btn:first-child {
-	*margin-left: 0;
-}
-
-.btn--disabled {
-	opacity: .5;
-	cursor: default;
-}
-
 // Button Variations
+$buttons: (error, $errorcolor, $buttoncolor),
+					(info, $infocolor, $buttoncolorinfo),
+					(success, $successcolor, $buttoncolorsuccess),
+					(warning, $warningcolor, $buttoncolorwarning),
+					(primary, $primarycolor, $buttoncolorprimary),
+					(secondary, $secondarycolor, $buttoncolorprimary),
+					(inverted, $textcolor, $white);
 
-@each $buttontype in error $errorcolor $buttoncolorerror, info $infocolor $buttoncolorinfo, primary $primarycolor $buttoncolorprimary, success $successcolor $buttoncolorsuccess, warning $warningcolor $buttoncolorwarning {
-	.btn--#{nth($buttontype, 1)} {
-		background-color: nth($buttontype, 2);
+@each $buttontype, $bgcolor, $color in $buttons {
+	.btn--#{$buttontype},
+	.btn--#{$buttontype}:visited {
+		background: $bgcolor;
 		@if $buttonborder == true {
 			border: {
-				color: darken(nth($buttontype, 2), 10%);
-				bottom-color: darken(nth($buttontype, 2), 15%);
+				color: darken($bgcolor, 10%);
+				bottom-color: darken($bgcolor, 15%);
 			}
 		}
-		color: nth($buttontype, 3);
+		color: $color;
 
-		&:visited,
 		&:active,
 		&:hover {
-      background-color: darken(nth($buttontype, 2), 10%);
-			color: nth($buttontype, 3);
+			background-color: darken($bgcolor, 10%);
+			color: $color;
 		}
-	}
-}
-
-.btn.btn--large {
-	*padding:
-	{
-		top: 7px;
-		bottom: 7px;
 	}
 }
 
 .btn--extlarge {
-	padding: 11px 22px;
-	@include font-size($buttonfontsize * 2);
+	padding: 15px 30px;
+	@include font-size(21);
 	@if $buttonborder == true {
 		border-width: $buttonborderwidth * 2;
 	}
@@ -91,7 +81,7 @@
 
 .btn--large {
 	padding: 11px 18px;
-	@include font-size($buttonfontsize * 1.25);
+	@include font-size(18);
 	line-height: inherit;
 	@if $buttonborder == true {
 		border-width: $buttonborderwidth * 2;
@@ -101,14 +91,23 @@
 
 .btn--small {
 	padding: 5px 10px;
-	@include font-size($buttonfontsize / 1.5);
+	@include font-size(12);
 	line-height: inherit;
 }
 
 .btn--mini {
 	padding: 3px 5px;
-	@include font-size($buttonfontsize / 1.75);
+	@include font-size(10);
 	line-height: inherit;
+}
+
+.btn:first-child {
+	*margin-left: 0;
+}
+
+.btn--disabled {
+	opacity: .5;
+	cursor: default;
 }
 
 .btn-group {
@@ -126,33 +125,19 @@
 
 	.btn:first-child {
 		margin-left: 0;
-		border-radius: 2px, 0, 2px, 0;
+		border-radius: 2px 0 2px 0;
 	}
 
 	.btn:last-child {
-		border-radius: 0, 2px, 0, 2px;
+		border-radius: 0 2px 0 2px;
 	}
 
 	.btn.large:first-child {
 		margin-left: 0;
-		border-radius: 4px, 0, 4px, 0;
+		border-radius: 4px 0 4px 0;
 	}
 
 	.btn.large:last-child {
-		border-radius: 0, 4px, 0, 4px;
-	}
-}
-
-/*btn.btn-group*/
-
-.btn-toolbar {
-	clear: both;
-	margin-top: $baselineheight / 2;
-	margin-bottom: $baselineheight / 2;
-
-	.btn-group {
-		display: inline-block;
-		*display: inline;
-		*zoom: 1;
+		border-radius: 0 4px 0 4px;
 	}
 }

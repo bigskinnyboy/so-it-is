@@ -69,7 +69,6 @@ ol {
 
 li ul,
 li ol {
-//	list-style-type: none;
 	margin: $baselineheight 0;
 }
 
@@ -88,7 +87,6 @@ ol.inline {
 
 blockquote {
 	margin: 0 0 $baselineheight 0;
-	//padding: $gutter-width / 2;
 
 	small {
 		&:before {
@@ -204,7 +202,7 @@ sup {
 	position: relative;
 	@include font-size($basefontsize / 1.25);
 	line-height: 0;
-	vertical-align: baselineheight;
+	vertical-align: baseline;
 }
 
 sup {
@@ -242,14 +240,6 @@ sub {
 
 }
 
-/*footnotes*/
-
 .spaced {
 	letter-spacing: 1px;
 }
-
-// Lede paragraph
-//.lede {
-//  @include font-size(18);
-//  line-height: 1.23;
-//}

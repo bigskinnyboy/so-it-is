@@ -27,13 +27,6 @@
 
 @import "susy";
 
-//
-// Turning debug on will outline any missing elements etc.
-// Lookin in _debug.scss for more information.
-
-$debug-mode																					: false !default;
-
-
 // Borders
 $bordercolor																				: #cfcfcf;
 $borderwidth																				: 1px;
@@ -55,13 +48,6 @@ $black																							: #000000;
 $white																							: #ffffff;
 $grey                                               : #76797c;
 
-$bodycolor																					: #fff;
-$textcolor																					: #565658;
-$textlightercolor                                   : #464646;
-
-$basecolor																					: $black;
-
-
 $errorcolor																					: #d9534f;
 $infocolor																					: #5bc0de;
 $successcolor																				: #5cb85c;
@@ -69,6 +55,12 @@ $warningcolor																				: #f0ad4e;
 $primarycolor																				: $black;
 $secondarycolor                                     : blue;
 $tertiarycolor                                      : red;
+
+$basecolor																					: $black;
+
+$bodycolor																					: #fff;
+$textcolor																					: #565658;
+$textlightercolor                                   : #464646;
 
 $wellbgcolor                                        : #F9FAFB;
 
@@ -82,6 +74,8 @@ $wellbgcolor                                        : #F9FAFB;
 
 $basefontfamily																			: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $basefontsize																				: 14;
+$fontsizelarge																			: 18;
+$fontsizesmall																			: 12;
 $baselineheight																			: 1.5em;
 $baseheadingfont																		: $basefontfamily;
 $baseheadingfontweight															: bold;
@@ -90,6 +84,25 @@ $baseheadingfontcolor																: $textcolor;
 $codefont 																					: Monaco, Courier New, monospace;
 
 
+
+$font-size-large         														: $fontsizelarge;
+$font-size-small         														: $fontsizesmall;
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base        														: 1.5 !default;
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed																: floor(($basefontsize * $line-height-base)) !default;
+
+$line-height-large																	: 1.33 !default;
+$line-height-small																	: 1.5 !default;
+
+$padding-base-vertical															: 8px !default;
+$padding-base-horizontal														: 10px !default;
+
+$padding-large-vertical															: 10px !default;
+$padding-large-horizontal														: 16px !default;
+
+$padding-small-vertical															: 5px !default;
+$padding-small-horizontal														: 10px !default;
 
 
 
@@ -175,15 +188,26 @@ $buttoncolorwarning																	: $buttoncolor;
 //   7. Forms
 // ==========================================================================
 
-//$inputbackground																		: #fafafa;
-//$inputborder																				: $bordercolor;
-//$inputborderwidth																		: 1px;
-//$inputborderstyle																		: solid;
-$inputborderradius																	: 0;
-//$inputhover																					: lighten($basecolor, 20%);
-//$inputfocus																					: $inputhover;
-//$placeholdercolor																		: darken($black, 50%);
-$inputpadding																				: 7px;
+// Uses Bootstrap 3 forms
+$input-bg																						: #fff !default;
+$input-bg-disabled																	: $grey !default;
+
+$input-color																				: $textcolor !default;
+$input-border																				: $bordercolor !default;
+$input-border-radius																: 0 !default;
+$input-border-focus																	: $focuscolor !default;
+
+$input-color-placeholder														: $grey !default;
+
+$input-height-base																	: ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+$input-height-large																	: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
+$input-height-small																	: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
+
+$legend-color																				: $textcolor !default;
+$legend-border-color																: $bordercolor !default;
+
+$input-group-addon-bg																: $textcolor !default;
+$input-group-addon-border-color											: $input-border !default;
 
 
 

@@ -20,14 +20,12 @@ a {
 }
 
 ::-moz-selection {
-	//background-color: lighten($basecolor, 65%);
 	background-color: $focuscolor;
 	color: $basecolor;
 	text-shadow: none;
 }
 
 ::selection {
-	//background-color: lighten($basecolor, 65%);
 	background-color: $focuscolor;
 	color: $basecolor;
 	text-shadow: none;

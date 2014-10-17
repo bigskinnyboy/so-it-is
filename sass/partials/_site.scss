@@ -1,26 +1,5 @@
-@-webkit-viewport {
-	width : device-width;
-}
-
-@-moz-viewport {
-	width : device-width;
-}
-
-@-ms-viewport {
-	width : device-width;
-}
-
-@-o-viewport {
-	width : device-width;
-}
-
-@viewport {
-	width : device-width;
-}
-
 html {
 	background: $bodycolor;
-	font-size: 62.5%;
 	-webkit-overflow-scrolling: touch;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-text-size-adjust: 100%;
@@ -31,7 +10,7 @@ body {
 	width: 100%;
 	background-color: $bodycolor;
 	font-family: $basefontfamily;
-	@include font-size($basefontsize);
+	font-size: #{$basefontsize}px;
 	line-height: $baselineheight;
 	color: $textcolor;
 }

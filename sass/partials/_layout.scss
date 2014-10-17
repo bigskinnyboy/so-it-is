@@ -58,8 +58,4 @@
       margin-right: 0;
     }
   }
-  &.layout {
-    @include clearfix();
-    margin-bottom: $baselineheight;
-  }
 }
