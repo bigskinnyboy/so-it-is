@@ -9,12 +9,12 @@
 	&:hover {
 		text-decoration: none;
 	}
-}
+} 
 
 // Navigation wrapper
 .navbar-collapse {
 	position: relative;
-	@include transition(all .35s ease-out);
+	//@include transition(all .35s ease-out);
 	overflow: hidden;
 	max-height: 0;
 	clear: both;
