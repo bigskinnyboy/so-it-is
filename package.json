@@ -1,26 +1,31 @@
 {
-  "name": "soitis",
+  "name": "so-it-is",
   "version": "0.1.0",
-  "description": "A magpie CSS framework",
-  "main": "Gruntfile.js",
+  "description": "A Magpie CSS Framework",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bigskinnyboy/so-it-is.git"
   },
   "author": "Aaron Witherow",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
-    }
-  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bigskinnyboy/so-it-is/issues"
   },
+  "homepage": "https://github.com/bigskinnyboy/so-it-is",
   "devDependencies": {
-    "grunt": "~0.4.4",
-    "grunt-sass": "~0.12.1",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-cssmin": "~0.9.0"
+    "gulp": "~3.8.6",
+    "gulp-autoprefixer": "~1.0.1",
+    "gulp-concat": "^2.3.3",
+    "gulp-jshint": "^1.7.1",
+    "gulp-minify-css": "^0.3.11",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^1.3.1",
+    "gulp-uglify": "^0.3.1",
+    "jshint-stylish": "^1.0.0",
+    "susy": "^2.2.2-alpha.1"
   }
 }

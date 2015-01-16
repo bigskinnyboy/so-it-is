@@ -1,19 +1,17 @@
-//@import "compass";
-
 @import "partials/config";
 @import "partials/normalise";
 @import "partials/mixins";
 
 /* ============ Optional modules ============= */
+@import "modules/utilities";
 @import "modules/buttons";
 @import "modules/alerts";
-@import "modules/forms";
+@import "modules/bootstrap-forms";
 @import "modules/tables";
-//@import "modules/bootstrap-accordion";
 //@import "modules/flexslider";
 @import "modules/navigation-toggle";
-@import "modules/gallery";
-@import "modules/post-meta";
+//@import "modules/gallery";
+//@import "modules/post-meta";
 @import "modules/media-object";
 @import "modules/flag-object";
 
@@ -24,6 +22,3 @@
 @import "partials/colour";
 @import "partials/layout";
 @import "partials/page";
-
-/* =============== Debugging =============== */
-@import "partials/debug";

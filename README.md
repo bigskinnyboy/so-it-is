@@ -1,10 +1,10 @@
 # It's CSS so it is
 
-Like a magpie I have gathered bits and pieces of CSS from all corners of the globe, so I have. 
+Libsass support
 
 ## Requirements
 * Sass, so it does
 * Susy, so it does
-* Compass, so it does
+* Gulp, so it does
 
-Very much a work in progress.
+Currently using Susy beta and gulp-sass for latest libsass support. Libsass and Susy support may be a bit flakey still.

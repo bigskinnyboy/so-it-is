@@ -22,16 +22,6 @@
     General
    ========================================================================== */
 
-%reset-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.row--centered {
-  text-align: center;
-}
-
 .more-link {
   &:before {
     content: "\f0da";
@@ -127,8 +117,6 @@ nav[role="navigation"] {
 
 
 /* ------------------------------- Pages ------------------------------------ */
-
-
 
 
 
