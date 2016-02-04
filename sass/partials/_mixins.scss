@@ -101,33 +101,39 @@ $bps: (
 );
 
 @mixin bp($point, $query: min) {
-	// If no media query support and max width
-	// is not passed, output the content.
-	@if ($no-mqs) and ($query != max) {
-		@content;
-	}
-	@else {
-		// If passed value exists in the map.
-		@if map-has-key($bps, $point) {
-			// Get the value
-			$mapvalue: map-get($bps, $point);
+  // If no media query support and max width
+  // is not passed, output the content.
+  @if ($no-mqs) and ($query != max) {
+    @content;
+  }
+  @else {
+    // If passed value exists in the map.
+    @if map-has-key($bps, $point) {
+      // Get the value
+      $mapvalue: map-get($bps, $point);
 
-			// If the max parameter is passed
-			// remove 0.1 from it so queries don't clash
-			@if ($query == max) {
-				$mapvalue: $mapvalue - 0.1;
-			}
+      // If the max parameter is passed
+      // remove value (depending on unit) from it so queries don't clash
+      @if ($query == max) {
+        @if type-of($mapvalue) == number and (unit($mapvalue) == "em") {
+          $mapvalue: $mapvalue - 0.01em;
+        } @else if type-of($mapvalue) == number and (unit($mapvalue) == "px") {
+          $mapvalue: $mapvalue - 0.1px;
+        } @else {
+          $mapvalue: $mapvalue - 0.1;
+        }
+      }
 
-			// Output the media query
-			@media (#{$query}-width: $mapvalue) {
-				@content;
-			}
-		}
-			// Otherwise tell them they are wrong!
-		@else {
-			@warn "Not a valid named breakpoint, options are: #{map-keys($bps)}";
-		}
-	}
+      // Output the media query
+      @media (#{$query}-width: $mapvalue) {
+        @content;
+      }
+    }
+      // Otherwise tell them they are wrong!
+    @else {
+      @warn "Not a valid named breakpoint, options are: #{map-keys($bps)}";
+    }
+  }
 }
 
 // Usage :
